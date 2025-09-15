@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tourist QR Code</title>
+</head>
+<body>
+    <h1>Tourist QR Code</h1>
+
+    <input type="text" id="touristId" placeholder="Enter Tourist ID" />
+    <button onclick="fetchQRCode()">Get QR Code</button>
+
+    <div id="qrContainer">
+        <img id="qr-code" alt="QR Code will appear here" />
+    </div>
+
+    <script>
+        function fetchQRCode() {
+            const touristId = document.getElementById('touristId').value.trim();
+            const imageUrl = `http://127.0.0.1:8000/api/tourists/${touristId}/qrcode/image`;
+            document.getElementById('qr-code').src = imageUrl;
+        }
+    </script>
+</body>
+</html>
